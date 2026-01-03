@@ -135,7 +135,7 @@ export const AnalysisPage = () => {
 
   // Color helper for severity
   const getSeverityColor = (sev?: string) => {
-    if (!sev) return "text-blue-500 bg-blue-500/20"; // Default safe fallback
+    if (!sev) return "text-cyber-blue bg-cyber-blue/20"; // Default safe fallback
 
     switch (sev.toLowerCase()) {
       case "critical":
@@ -145,7 +145,7 @@ export const AnalysisPage = () => {
       case "medium":
         return "text-yellow-500 bg-yellow-500/20";
       default:
-        return "text-blue-500 bg-blue-500/20";
+        return "text-cyber-blue bg-cyber-blue/20";
     }
   };
 
@@ -219,15 +219,15 @@ export const AnalysisPage = () => {
             <AnimatePresence>
               {status === "SCANNING" && (
                 <motion.div
-                  initial={{ top: "0%" }}
-                  animate={{ top: "100%" }}
+                  initial={{ top: "0%", opacity: 0 }}
+                  animate={{ top: "100%", opacity: 0.3 }}
                   exit={{ opacity: 0 }}
                   transition={{
-                    duration: 1.5,
+                    duration: 2,
                     repeat: Infinity,
                     ease: "linear",
                   }}
-                  className="absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyber-blue to-transparent shadow-[0_0_20px_theme(colors.cyber.blue)] z-10 pointer-events-none"
+                  className="absolute left-0 right-0 h-[1px] bg-cyber-blue z-10 pointer-events-none"
                 />
               )}
             </AnimatePresence>
@@ -258,7 +258,7 @@ export const AnalysisPage = () => {
               <textarea
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                className="w-full h-80 bg-black/60 rounded-xl p-5 font-mono text-sm text-cyber-blue outline-none border border-white/5 resize-none scrollbar-hide focus:border-cyber-blue/30 transition-colors placeholder-gray-700"
+                className="w-full h-80 bg-black/60 rounded-xl p-5 font-mono text-sm text-cyber-green outline-none border border-white/5 resize-none scrollbar-hide focus:border-cyber-blue/30 transition-colors placeholder-gray-700"
                 spellCheck="false"
                 placeholder="// Paste code here for security analysis..."
               />
@@ -276,7 +276,7 @@ export const AnalysisPage = () => {
                 ? "bg-gray-800 text-gray-500"
                 : isDanger
                   ? "bg-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] text-white"
-                  : "bg-gradient-to-r from-cyber-blue to-cyber-purple text-black shadow-[0_0_30px_theme(colors.cyber.blue)]"
+                  : "bg-gradient-to-r from-cyber-blue to-cyber-purple text-cyber-black shadow-[0_0_30px_rgb(var(--cyber-blue))] cyber-btn"
                 } ${!code ? "opacity-50 cursor-not-allowed" : ""}`}
             >
               {status === "SCANNING" ? (
@@ -332,8 +332,8 @@ export const AnalysisPage = () => {
                 </span>
                 <motion.span
                   key={isDanger ? "crit" : "sec"}
-                  initial={{ scale: 1.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   className={`text-2xl font-black italic tracking-tighter ${isDanger ? "text-red-500" : "text-cyber-green"
                     }`}
                 >
@@ -369,7 +369,7 @@ export const AnalysisPage = () => {
                     Copy
                   </button>
                 </div>
-                <div className="max-h-40 overflow-y-auto custom-scrollbar font-mono text-[10px] text-gray-400 whitespace-pre-wrap break-all pr-2">
+                <div className="max-h-40 overflow-y-auto custom-scrollbar font-mono text-[10px] text-cyber-white whitespace-pre-wrap break-all pr-2">
                   {code}
                 </div>
               </div>

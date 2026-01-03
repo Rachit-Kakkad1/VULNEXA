@@ -97,12 +97,12 @@ const HistoryPage = () => {
         {/* Header */}
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-black tracking-tighter text-white flex items-center gap-3">
+            <h1 className="text-4xl font-black tracking-tighter text-white flex items-center gap-3 text-glitch" data-text="ANALYSIS_HISTORY">
               <History className="text-cyber-blue" size={32} />
               ANALYSIS_HISTORY
             </h1>
-            <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.3em] mt-1 flex items-center">
-              <span className="w-2 h-2 bg-cyber-green rounded-full mr-2 animate-pulse shadow-[0_0_10px_theme(colors.cyber.green)]" />
+            <p className="text-cyber-slate text-xs font-bold uppercase tracking-[0.3em] mt-1 flex items-center">
+              <span className="w-2 h-2 bg-cyber-green rounded-full mr-2 animate-pulse shadow-[0_0_10px_rgb(var(--cyber-green))]" />
               {history.length} Total Scans // USER:{" "}
               {user?.name?.toUpperCase() || "ADMIN"}
             </p>
@@ -168,7 +168,7 @@ const HistoryPage = () => {
                       </p>
                       <button
                         onClick={() => navigate("/analyze")}
-                        className="mt-4 px-4 py-2 bg-cyber-blue text-black font-black text-xs uppercase tracking-widest rounded-lg hover:bg-cyber-blue/80 transition-all"
+                        className="mt-4 px-4 py-2 bg-cyber-blue text-cyber-black font-black text-xs uppercase tracking-widest rounded-lg hover:bg-cyber-blue/80 transition-all cyber-btn"
                       >
                         Start First Analysis
                       </button>
@@ -194,8 +194,8 @@ const HistoryPage = () => {
                               exit={{ opacity: 0, x: -20 }}
                               onClick={() => loadAnalysis(analysis.id)}
                               className={`
-                              w-full text-left p-4 rounded-xl border transition-all duration-300 group relative overflow-hidden
-                              ${isSelected
+                                w-full text-left p-4 rounded-xl border transition-all duration-300 group relative overflow-hidden perspective-card glow-stagger
+                                ${isSelected
                                   ? "bg-cyber-blue/20 border-cyber-blue/50 shadow-lg shadow-cyber-blue/20 scale-[1.02]"
                                   : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-cyber-blue/30 hover:shadow-md hover:-translate-y-1"
                                 }
@@ -280,7 +280,7 @@ const HistoryPage = () => {
                   className="space-y-6"
                 >
                   {/* Report Header */}
-                  <GlassCard className="border-cyber-blue/20">
+                  <GlassCard className="border-cyber-blue/20 scanline-overlay">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
                       <div>
                         <h2 className="text-2xl font-black text-white tracking-tighter mb-2">
@@ -326,7 +326,7 @@ const HistoryPage = () => {
                               Copy Code
                             </button>
                           </div>
-                          <div className="bg-black/40 rounded-xl border border-white/10 p-4 max-h-[300px] overflow-y-auto custom-scrollbar font-mono text-xs text-gray-300">
+                          <div className="bg-black/40 rounded-xl border border-white/10 p-4 max-h-[300px] overflow-y-auto custom-scrollbar font-mono text-xs text-cyber-white">
                             <pre className="whitespace-pre-wrap break-all">
                               {selectedAnalysis.content}
                             </pre>
@@ -401,7 +401,7 @@ const HistoryPage = () => {
                   </p>
                   <button
                     onClick={() => navigate("/analyze")}
-                    className="px-6 py-3 bg-cyber-blue text-black font-black text-xs uppercase tracking-widest rounded-lg hover:bg-cyber-blue/80 transition-all shadow-[0_0_20px_rgba(0,242,255,0.3)]"
+                    className="px-6 py-3 bg-cyber-blue text-cyber-black font-black text-xs uppercase tracking-widest rounded-lg hover:bg-cyber-blue/80 transition-all shadow-[0_0_20px_rgb(var(--cyber-blue)/0.3)] cyber-btn"
                   >
                     Start New Analysis
                   </button>

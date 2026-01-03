@@ -8,27 +8,30 @@ export default {
       },
       colors: {
         cyber: {
-          black: "#030014",   // Deep Void Black (Main BG)
-          dark: "#0F172A",    // Cosmic Navy (Card BG) -- slightly lighter than black for depth
-          blue: "#00F3FF",    // Electric Cyan (Primary Accent)
-          purple: "#BC13FE",  // Neon Purple (Secondary Accent)
-          green: "#00FF94",   // Cyber Green (Success/Status)
-          slate: "#94A3B8",   // Muted Text
-          white: "#F1F5F9",   // Primary Text
+          black: "rgb(var(--cyber-black) / <alpha-value>)",
+          dark: "rgb(var(--cyber-dark) / <alpha-value>)",
+          "dark-lighter": "rgba(255, 255, 255, 0.05)",
+          blue: "rgb(var(--cyber-blue) / <alpha-value>)",
+          purple: "rgb(var(--cyber-purple) / <alpha-value>)",
+          green: "rgb(var(--cyber-green) / <alpha-value>)",
+          slate: "rgb(var(--cyber-slate) / <alpha-value>)",
+          white: "rgb(var(--cyber-white) / <alpha-value>)",
         },
       },
       backgroundImage: {
-        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
-        'neon-gradient': 'linear-gradient(to right, #00F3FF, #BC13FE)',
+        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%)',
+        'soft-glow': 'radial-gradient(circle at center, rgb(var(--cyber-blue) / 0.15) 0%, transparent 70%)',
       },
+
       boxShadow: {
-        'neon-blue': '0 0 20px rgba(0, 243, 255, 0.2), 0 0 10px rgba(0, 243, 255, 0.1)',
-        'neon-purple': '0 0 20px rgba(188, 19, 254, 0.2), 0 0 10px rgba(188, 19, 254, 0.1)',
-        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        'subtle-blue': '0 0 15px rgb(var(--cyber-blue) / 0.15)',
+        'subtle-purple': '0 0 15px rgb(var(--cyber-purple) / 0.15)',
+        'glass-pro': '0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05)',
       },
       dropShadow: {
-        'glow': '0 0 10px rgba(0, 243, 255, 0.5)',
+        'soft': '0 0 8px rgb(var(--cyber-blue) / 0.3)',
       }
+
     },
   },
   plugins: [],
